@@ -1,51 +1,67 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
 namespace Task_1_Anagram
 {
     internal class Anagram
     {
-        public string PrintText()
+        public void Reverse()
         {
-            string userInput = "";
+            StringBuilder result = new StringBuilder();
 
-            Console.WriteLine("Enter the initial text:");
-            userInput = Console.ReadLine();
-
-            if (string.IsNullOrEmpty(userInput))
-            {
-                Console.WriteLine("Please enter text");
-                //or press Esc to terminate running
-                //handle empty user input
-                return userInput = "";
-            }
-            return userInput;
-
-        }
-
-
-        public string[] Split(string userInput)
-        {
-            string[] words = userInput.Split(' ');
-            foreach (var word in words)
-            {
-                System.Console.WriteLine($"{word}");
-            }
+            string[] words = PrintText().Split(' ');
             foreach (var word in words)
             {
                 char[] toBeReversed = word.ToCharArray();
-                Array.Reverse(toBeReversed);
-                //add logic to avoid not alphabetical symbols
-                foreach (var item in toBeReversed)
-                {
-                    Console.Write(item);
-                }
-               
+                ReverseWord(toBeReversed);
+                result.Append(toBeReversed);
+                result.Append(' ');
             }
-            return words;
+
+            Console.WriteLine(result.ToString());
         }
+
+        private string PrintText()
+        {
+            Console.WriteLine("Enter the initial text:");
+            string userInput = Console.ReadLine();
+            // return EmptyStringCheck(userInput);
+            return userInput;
+        }
+
+        private void ReverseWord(char[] str)
+        {
+            // Initialize left and right pointers
+            int r = str.Length - 1, l = 0;
+
+            while (l < r)
+            {
+                if (!char.IsLetter(str[l]))
+                    l++;
+                else if (!char.IsLetter(str[r]))
+                    r--;
+                else
+                {
+                    char tmp = str[l];
+                    str[l] = str[r];
+                    str[r] = tmp;
+                    l++;
+                    r--;
+                }
+            }
+        }
+
+
+        //private string EmptyStringCheck(string s)
+        //{
+        //    do
+        //    {
+        //        //s = Console.ReadLine();
+        //        if (string.IsNullOrEmpty(s))
+        //        {
+        //            Console.WriteLine("Empty input, please try again");
+        //        }
+        //    } while (string.IsNullOrEmpty(s));
+        //    return s;
+        //}
     }
 }

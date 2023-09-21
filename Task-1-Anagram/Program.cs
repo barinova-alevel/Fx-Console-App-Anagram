@@ -1,6 +1,6 @@
-﻿using Task_1_Anagram;
+﻿using System.Text;
+using Task_1_Anagram;
 
-Anagram a = new Anagram();
-string operating = a.PrintText();
-a.Split(operating);
+Anagram anagram = new Anagram();
+anagram.Reverse();
 Console.ReadKey();
