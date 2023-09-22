@@ -7,8 +7,9 @@ namespace Task_1_Anagram
         public void Reverse()
         {
             StringBuilder result = new StringBuilder();
+            string userInput = "";
 
-            string[] words = PrintText().Split(' ');
+            string[] words = PrintText(userInput).Split(' ');
             foreach (var word in words)
             {
                 char[] toBeReversed = word.ToCharArray();
@@ -16,16 +17,23 @@ namespace Task_1_Anagram
                 result.Append(toBeReversed);
                 result.Append(' ');
             }
-
+            Console.WriteLine();
+            Console.WriteLine("Result:");
             Console.WriteLine(result.ToString());
         }
 
-        private string PrintText()
+        private string PrintText(string s)
         {
             Console.WriteLine("Enter the initial text:");
-            string userInput = Console.ReadLine();
-            // return EmptyStringCheck(userInput);
-            return userInput;
+            do
+            {
+                s = Console.ReadLine();
+                if (string.IsNullOrEmpty(s))
+                {
+                    Console.WriteLine("Empty input, please try again");
+                }
+            } while (string.IsNullOrEmpty(s));
+            return s;
         }
 
         private void ReverseWord(char[] str)
@@ -49,19 +57,5 @@ namespace Task_1_Anagram
                 }
             }
         }
-
-
-        //private string EmptyStringCheck(string s)
-        //{
-        //    do
-        //    {
-        //        //s = Console.ReadLine();
-        //        if (string.IsNullOrEmpty(s))
-        //        {
-        //            Console.WriteLine("Empty input, please try again");
-        //        }
-        //    } while (string.IsNullOrEmpty(s));
-        //    return s;
-        //}
     }
 }
