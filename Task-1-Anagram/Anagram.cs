@@ -4,11 +4,10 @@ namespace Task_1_Anagram
 {
     public class Anagram
     {
-        public void Reverse()
+        public string Reverse(string userInput)
         {
             StringBuilder result = new StringBuilder();
 
-            string userInput = ReadUserInput();
             string[] words = userInput.Split(' ');
             foreach (var word in words)
             {
@@ -16,12 +15,14 @@ namespace Task_1_Anagram
                 result.Append(reversed);
                 result.Append(' ');
             }
+            string stringResult = result.ToString().Trim();
             Console.WriteLine();
             Console.WriteLine("Result:");
-            Console.WriteLine(result.ToString());
+            Console.WriteLine(stringResult);
+            return stringResult;
         }
 
-        private string ReadUserInput()
+        public string ReadUserInput()
         {
             string s;
             Console.WriteLine("Enter the initial text:");
@@ -36,7 +37,7 @@ namespace Task_1_Anagram
             return s;
         }
 
-        public string ReverseWord(string str)
+        private string ReverseWord(string str)
         {
             char[] toBeReversed = str.ToCharArray();
             int rightPointer = str.Length - 1, leftPointer = 0;

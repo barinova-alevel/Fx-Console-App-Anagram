@@ -2,5 +2,6 @@
 using Task_1_Anagram;
 
 Anagram anagram = new Anagram();
-anagram.Reverse();
+string userInput = anagram.ReadUserInput();
+anagram.Reverse(userInput);
 Console.ReadKey();
