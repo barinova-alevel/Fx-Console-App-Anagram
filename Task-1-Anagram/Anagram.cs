@@ -2,7 +2,7 @@
 
 namespace Task_1_Anagram
 {
-    internal class Anagram
+    public class Anagram
     {
         public void Reverse()
         {
@@ -36,7 +36,7 @@ namespace Task_1_Anagram
             return s;
         }
 
-        private string ReverseWord(string str)
+        public string ReverseWord(string str)
         {
             char[] toBeReversed = str.ToCharArray();
             int rightPointer = str.Length - 1, leftPointer = 0;
