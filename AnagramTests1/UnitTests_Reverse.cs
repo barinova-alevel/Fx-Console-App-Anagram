@@ -48,7 +48,6 @@
 
             //assert
             Assert.AreEqual("3cilliryC яц##илик Її₴", reversed);
-
         }
 
         [TestMethod]
@@ -63,8 +62,7 @@
             reversed = anagram.Reverse(input);
 
             //assert
-            //Empty input, please try again
-
+            Assert.IsNotNull(reversed);
         }
 
         [TestMethod]
