@@ -15,10 +15,8 @@ namespace Task_1_Anagram
                 result.Append(reversed);
                 result.Append(' ');
             }
-            string stringResult = result.ToString().Trim();
-            Console.WriteLine();
-            Console.WriteLine("Result:");
-            Console.WriteLine(stringResult);
+            string stringWithRedundantSpace = result.ToString();
+            string stringResult = stringWithRedundantSpace.Remove(stringWithRedundantSpace.Length - 1, 1);
             return stringResult;
         }
 
