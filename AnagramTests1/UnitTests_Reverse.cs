@@ -80,6 +80,7 @@
             Assert.AreEqual("Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123 Long input 123", reversed);
         }
 
+        [TestMethod]
         public void Reverse_ShortInput()
         {
             //arrange
@@ -92,7 +93,66 @@
 
             //assert
             Assert.AreEqual("tr0hs", reversed);
+        }
 
+        [TestMethod]
+        public void Reverse_MultipleSpaces()
+        {
+            //arrange
+            string withMultipleSpaces = "  Two spaces,   Three spaces, 1 ";
+            string reversed;
+            var anagram = new Anagram();
+
+            //act
+            reversed = anagram.Reverse(withMultipleSpaces);
+
+            //assert
+            Assert.AreEqual("  owT secaps,   eerhT secaps, 1 ", reversed);
+        }
+
+        [TestMethod]
+        public void Reverse_SpaceAtBegin()
+        {
+            //arrange
+            string withMultipleSpaces = " Space* at begin";
+            string reversed;
+            var anagram = new Anagram();
+
+            //act
+            reversed = anagram.Reverse(withMultipleSpaces);
+
+            //assert
+            Assert.AreEqual(" ecapS* ta nigeb", reversed);
+        }
+
+        [TestMethod]
+        public void Reverse_SpaceAtEnd()
+        {
+            //arrange
+            string spaceAtEnd = "End ";
+            string reversed;
+            var anagram = new Anagram();
+
+            //act
+            reversed = anagram.Reverse(spaceAtEnd);
+
+            //assert
+            Assert.AreEqual("dnE ", reversed);
+        }
+
+        [TestMethod]
+        public void Reverse_WithoutLetters()
+        {
+            //arrange
+            string withoutLetters = "123 *() #";
+            string reversed;
+            var anagram = new Anagram();
+
+            //act
+            reversed = anagram.Reverse(withoutLetters);
+
+            //assert
+            Assert.AreEqual("123 *() #", reversed);
         }
     }
 }
