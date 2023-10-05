@@ -154,5 +154,19 @@
             //assert
             Assert.AreEqual("123 *() #", reversed);
         }
+
+        [TestMethod]
+        public void Reverse_CheckOnNull()
+        {
+            //arrange
+            string checkNull = null;
+            var anagram = new Anagram();
+
+            //act
+
+            //assert
+            var exception = Assert.ThrowsException<System.NullReferenceException>(() => anagram.Reverse(checkNull));
+            Assert.AreEqual("Object reference not set to an instance of an object.", exception.Message);
+        }
     }
 }
