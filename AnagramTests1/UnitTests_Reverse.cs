@@ -62,7 +62,7 @@
             reversed = anagram.Reverse(input);
 
             //assert
-            Assert.IsNotNull(reversed);
+            Assert.AreEqual("",reversed);
         }
 
         [TestMethod]
