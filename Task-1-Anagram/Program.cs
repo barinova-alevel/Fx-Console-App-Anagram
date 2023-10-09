@@ -1,7 +1,9 @@
 ﻿using Task_1_Anagram;
 
 Anagram anagram = new Anagram();
-string userInput = anagram.ReadUserInput();
+UserInput userInputInstance = new UserInput();
+
+string userInput = userInputInstance.ReadUserInput();
 string result = anagram.Reverse(userInput);
 Console.WriteLine();
 Console.WriteLine("Result:");

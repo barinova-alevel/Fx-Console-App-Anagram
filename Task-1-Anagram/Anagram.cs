@@ -4,35 +4,20 @@ namespace Task_1_Anagram
 {
     public class Anagram
     {
+     
         public string Reverse(string userInput)
         {
-            StringBuilder result = new StringBuilder();
+            List<string> result = new List<string>();
 
             string[] words = userInput.Split(' ');
             foreach (var word in words)
             {
                 string reversed = ReverseWord(word);
-                result.Append(reversed);
-                result.Append(' ');
+                result.Add(reversed);
             }
-            string stringWithRedundantSpace = result.ToString();
-            string stringResult = stringWithRedundantSpace.Remove(stringWithRedundantSpace.Length - 1, 1);
-            return stringResult;
-        }
 
-        public string ReadUserInput()
-        {
-            string s;
-            Console.WriteLine("Enter the initial text:");
-            do
-            {
-                s = Console.ReadLine();
-                if (string.IsNullOrEmpty(s))
-                {
-                    Console.WriteLine("Empty input, please try again");
-                }
-            } while (string.IsNullOrEmpty(s));
-            return s;
+            string stringResult = string.Join(" ", result);
+            return stringResult;
         }
 
         private string ReverseWord(string str)
