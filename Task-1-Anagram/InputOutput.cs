@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Task_1_Anagram
+﻿namespace Task_1_Anagram
 {
-    internal class UserInput
+    internal class InputOutput
     {
         public string ReadUserInput()
         {
@@ -21,6 +15,13 @@ namespace Task_1_Anagram
                 }
             } while (string.IsNullOrEmpty(s));
             return s;
+        }
+        public void OutputResult(string result)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Result:");
+            Console.WriteLine(result);
+            Console.ReadKey();
         }
     }
 }
