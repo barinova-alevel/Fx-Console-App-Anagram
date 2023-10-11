@@ -16,6 +16,7 @@
             } while (string.IsNullOrEmpty(s));
             return s;
         }
+
         public void OutputResult(string result)
         {
             Console.WriteLine();
